@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+
+  "name": "What's Happening, Scratch?",
+  "description": "This extension shows you your What's Happening Scaratch feed",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "https://scratch.mit.edu/",
+    "http://scratch.mit.edu/"
+  ]
+}
