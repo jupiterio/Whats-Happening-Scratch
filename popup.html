@@ -1,0 +1,23 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <title>What's Happening?</title>
+    <style>
+      body {
+        font-family: "Comic Sans MS", "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 110%;
+      }
+    </style>
+
+    <script src="popup.js"></script>
+  </head>
+  <body>
+     <h1>What's Happening in Scratch?</h1>
+    <div id="status" style="width: 600px" ></div>
+  </body>
+</html>
