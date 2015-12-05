@@ -63,7 +63,6 @@ document.addEventListener("DOMContentLoaded", function() {
 										 min:(Math.round(timeDiff / (1000 * 60))),
 										 sec:(Math.round(timeDiff / 1000))
 							};
-							console.log(diff.sec)
 							var ago =	((diff.year > 0) ? (diff.year + "&nbsp;years") : "") + " " +
 										((!(diff.month % 12) == 0) && (diff.month > 0) ? (diff.month + "&nbsp;months") : "") + " " +
 										((diff.day > 0) && (diff.day < 31) ? (diff.day + "&nbsp;days") : "") + " " +
