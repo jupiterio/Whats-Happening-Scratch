@@ -8,16 +8,33 @@
   <head>
     <title>What's Happening?</title>
     <style>
-      body {
-        font-family: "Comic Sans MS", "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-        font-size: 110%;
-      }
-    </style>
+      body { font-family: sans-serif; margin: 0; }
+	  #topbar { display: block; height: 30px; width: 100%; background: #0f8bc0; margin: 0; text-align: center; color: #fff; padding: 8px 0; position: fixed;
+	       box-shadow: 1px 1px 5px rgba(0,0,0,0.4); }
+	  #status { padding-top: 46px; }
+	  #status ul, #status li { margin: 0; padding: 0; display: block; }
+	  #status li { margin: 10px; padding: 10px; -moz-box-shadow: 1px 1px 5px rgba(0,0,0,0.4); -webkit-box-shadow: 1px 1px 5px rgba(0,0,0,0.4); box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+        display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
 
+		-ms-flex-align: center;
+		-webkit-align-items: center;
+		-webkit-box-align: center;
+
+		align-items: center;
+	  }
+	  #status li>* { display: inline-block; }
+	  #status li>div {margin-left: 10px;}
+	  #status li>div a { text-decoration: none; color: #0f8bc0; } #status li>div a:hover { text-decoration: underline; }
+	  #status li>div .time { font-size: 10px; }
+	  #status li>a>img { border: 1px solid #ccc; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+	  #msg { background: #f9a739; display: none; float: right; margin-right: 10px; font-size: 12px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; height: 15px; min-width: 15px; line-height: 14px; padding: 2.5px; font-weight: normal; }
+    </style>
     <script src="popup.js"></script>
   </head>
   <body>
-     <h1>What's Happening in Scratch?</h1>
-    <div id="status" style="width: 600px" ></div>
+      <h1 id="topbar">What's Happening in Scratch?<span id="msg"></span></h1>
+      <div id="status" style="width: 600px" ></div>
   </body>
 </html>
