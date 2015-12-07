@@ -49,7 +49,9 @@ document.addEventListener("DOMContentLoaded", function() {
 							eDA.setAttribute("class","actor");
 							eDA.innerText = jsonR[act].actor.username;
 							eDiv.appendChild(eDA);
-							eDiv.innerHTML += " "+jsonR[act].message.replace(/\n/g,'').replace(/    /g,' ').replace(/\/projects\//g, "http://scratch.mit.edu/projects/");
+							eDiv.innerHTML += " "+jsonR[act].message.replace(/\n/g,'').replace(/    /g,' ').replace(/\/projects\//g, "http://scratch.mit.edu/projects/").replace(/\/users\//g, "http://scratch.mit.edu/users/").replace(/\/studios\//g, "http://scratch.mit.edu/studios/");
+							eDiv.querySelector("a:not(.actor):not(.avatarlink)").setAttribute("class","scratchlink");
+							eDiv.querySelector("a:not(.actor):not(.avatarlink)").setAttribute("target","_blank");
 							// How much ago
 							var eDSpan = document.createElement("span");
 							eDSpan.setAttribute("class","time");
