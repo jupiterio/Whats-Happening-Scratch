@@ -11,20 +11,6 @@ document.addEventListener("DOMContentLoaded", function() {
 			var jsonR = JSON.parse(req.responseText);
 			if (jsonR.user) {
 				var username = jsonR.user.username; console.log("Logged in: "+username);
-				xhrGet("https://api.scratch.mit.edu/proxy/users/"+username+"/activity/count",function(req){
-					req.onload = function(){
-						var jsonR = JSON.parse(req.responseText);
-						var msg = document.querySelector("#msg");
-						msg.innerText = jsonR.msg_count;
-						msg.style.display = (jsonR.msg_count > 0) ? "block" : "none";
-						chrome.browserAction.setBadgeBackgroundColor({color:"#f9a739"});
-						if(jsonR.msg_count>0){
-							chrome.browserAction.setBadgeText({text:jsonR.msg_count.toString()});
-						}else{
-							chrome.browserAction.setBadgeText({text:""});
-						}
-					}
-				});
 				xhrGet("https://api.scratch.mit.edu/proxy/users/"+username+"/activity?limit=" + MAX,function(req){
 					req.onload = function(){
 						var jsonR = JSON.parse(req.responseText);
