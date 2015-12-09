@@ -21,7 +21,7 @@ function refreshBadge(){
 						}
 					}
 				},true);
-			}else{ console.error("Not logged in"); document.getElementById("status").innerHTML = "Not logged in"; }
+			}else{ console.error("Not logged in"); }
 		}
 	},true);
 }
