@@ -43,19 +43,19 @@ document.addEventListener("DOMContentLoaded", function() {
 							var today = new Date();
 							var actDate = new Date(jsonR[act].datetime_created);
 							var timeDiff = Math.abs(actDate.getTime() - today.getTime()) + (today.getTimezoneOffset() * 60 * 1000);
-							var diff = { year:(actDate.getYear() - today.getYear()),
-										 month:((actDate.getYear()*12-12+actDate.getMonth())-(today.getYear()*12-12+today.getMonth())),
+							var diff = { year:(today.getYear() - actDate.getYear()),
+										 month:((today.getYear()*12-12+today.getMonth())-(actDate.getYear()*12-12+actDate.getMonth())),
 										 day:(Math.round(timeDiff / (1000 * 3600 * 24))),
 										 hour:(Math.round(timeDiff / (1000 * 3600))),
 										 min:(Math.round(timeDiff / (1000 * 60))),
 										 sec:(Math.round(timeDiff / 1000))
 							};
 							var ago =	((diff.year > 0) ? (diff.year + "&nbsp;years") : "") + " " +
-										((!(diff.month % 12) == 0) && (diff.month > 0) ? (diff.month + "&nbsp;months") : "") + " " +
+										(((diff.month % 12) > 0) ? ((diff.month % 12) + "&nbsp;months") : "") + " " +
 										((diff.day > 0) && (diff.day < 31) ? (diff.day + "&nbsp;days") : "") + " " +
 										((diff.hour > 0) && (diff.hour < 24) ? (diff.hour + "&nbsp;hours") : "") + " " +
 										((diff.min > 0) && (diff.min < (24*60)) ? ((diff.min-60*Math.floor(diff.min / 60)) + "&nbsp;minutes") : "") + " " +
-										((diff.sec > 0) && (diff.sec < (60*60)) ? ((diff.sec-60*Math.floor(diff.sec / 60)) + "&nbsp;seconds") : "") + " ago"
+										((diff.sec < (60*60)) ? ((diff.sec-60*Math.floor(diff.sec / 60)) + "&nbsp;seconds") : "") + " ago"
 							eDSpan.innerHTML = ago;
 							eDiv.appendChild(eDSpan);
 							eLi.appendChild(eDiv);
